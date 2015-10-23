@@ -1,0 +1,53 @@
+
+Aufgabe:
+
+	This problem performs Elliptic Curve Elgamal encryption/decryption. 
+	The cryptosystem parameters are E13(1;6) and G=(12;2). B's private key is nB=8.
+
+    1. Find B's public key PB
+    2. A whishes to encrypt the message M=(11;3) and chooses the random value k=5. 
+    3. Determine the ciphertext (C1;C2).
+	   Show the calculation by which B recovers M from (C1;C2) by giving the Sage instructions.
+
+	Hint: Use Sage to solve the problems. E = EllipticCurve(IntegerModRing(13),[1,6]) creates the curve. Points on the curve, e.g. the generator, are defined as G=E(12,2).
+	
+Lösung:
+
+	1. Bobs public Key: PB=nB∗G=8∗(12,2)=(4,10)
+
+	2. Ciphertext: (C1;C2).
+
+	C1=k∗G=5∗(12,2)=(4,3)
+
+	C2=M+k∗PB=(11,3)+5∗(4,10)= (4,3)
+
+	Ciphertext: ((4,3);(4,3))
+
+	3. Decryption in Sage-Instructions:
+
+	E = EllipticCurve(IntegerModRing(13), [1,6])
+
+	G = E(12, 2)
+	k = 5
+
+	PB = NB * G
+
+	M = E(11, 3)
+
+	C1 = k * G
+
+	C2 = M + k * PB
+
+
+	Das war die Hinführung zu (C1, C2). Die Werte von C1, C2 ergeben sich aus 2.
+
+
+	X = NB * C1
+
+	M' = C2 - X
+
+	M' = (11, 3)
+
+
+
+

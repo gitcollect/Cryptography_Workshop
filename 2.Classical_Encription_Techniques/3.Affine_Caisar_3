@@ -1,0 +1,43 @@
+Aufgabe:
+
+	How many one-to-one affine Caesar ciphers are there?
+	
+Lösung:
+
+	312 Möglichkeiten gibt es für one-to-one Beziehungen bei 26 Buchstaben für a und b.
+
+	Die Zahl ergibt sich aus (siehe Ergebisse der 1. Aufgabe)
+
+	12 Möglichkeiten für a + 26 Möglichkeiten für b == a * b Möglichkeiten == 312 Möglichkeiten.
+
+	Programm dazu:
+
+	#!/usr/bin/python
+	import random
+	import time
+		
+	def encrypt(a, b, p):
+		return chr((ord(p)*a + b) % 26)
+
+	alphabet = "abcdefghijklmnopqrstuvwxyz"
+	result = ""
+	error = False
+	b = 1
+	count = 0
+
+	for a in range(0,26):
+		for b in range(0,26):
+			error = False
+			result = ""
+			for char in alphabet:
+				newChar = encrypt(a,b,char)
+				if newChar in result:
+					error = True
+					break
+				else:
+					result = result + newChar
+			if not error:
+				print "works for: a = " + str(a) + " and " + str(b)
+				count += 1
+			
+	print count

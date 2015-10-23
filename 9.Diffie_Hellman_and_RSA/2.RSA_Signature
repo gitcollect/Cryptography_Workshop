@@ -1,0 +1,15 @@
+
+Aufgabe:
+
+	Alice's public key is (n;e)=(221;7). You receive message 45 with signature 21.
+
+	Check if Alice signed the message!
+
+Lösung:
+
+	Die Nachricht ist signiert von Alice, wenn gilt:
+	M' = S^{e} mod n
+	also: M' = 21^{7} mod 221 = 200
+	und M = M'
+	also: 45 = 200.
+	Die Nachricht ist nicht signiert von Alice, da 45 != 200.

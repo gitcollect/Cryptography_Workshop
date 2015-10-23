@@ -1,0 +1,27 @@
+
+Aufgabe:
+
+	Show that the scheme introduced in the previous exercise is unacceptable by 
+	describing a simple technique for forging a user's signature on an arbitrary message.
+	
+Lösung:
+
+	Ein Angreifer kann M aus der Signatur abziehen S′=S−M und dann beliebiges auf S' multiplizieren!
+	Solange er k mit den gleichen Werten multipliziert, hebt es sich bei dem Check von Bob wieder auf. Z.B.:
+
+	S′=S−M
+	S′=S′∗500
+	S′=M−S′
+	k′=k∗500
+
+	Check von Bob:
+
+	M=S′+k′∗YA
+
+	Also:
+
+	M=M−(k∗XA∗G∗500)+(k∗500∗XA∗G)
+
+	Also:
+
+	M=M

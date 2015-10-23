@@ -1,0 +1,17 @@
+
+Aufgabe:
+
+	Alice and Bob want to negotiate a shared secret using Diffie-Hellman key exchange. 
+	The agree on modulus 17 and generator 5. Alice's secret is 4. Bob's secret is 13.
+
+    1. Describe the complete message exchange between Alice and Bob!
+    2. What is their shared secret?
+
+Lösung:
+
+	1. 	Alice und Bob generieren sich jeweils einen privaten Schlüssel X_A und X_B mit X_A, X_B < q.
+		Alice berechnet Y_A = a^{X_A} mod q, Bob berechnet Y_B = a^{X_B} mod q. 
+		Alice und Bob schicken sich das jew. Ergebnis.
+		Beide berechnen nun den gemeinsamen geheimen Schlüssel mit: K = Y_B^{X_A} mod q = Y_A^{X_B} mod q.
+	
+	2. 	Der gemeinsame, geheime Schlüssel ist 13.

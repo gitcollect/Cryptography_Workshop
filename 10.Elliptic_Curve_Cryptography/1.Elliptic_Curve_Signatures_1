@@ -1,0 +1,29 @@
+
+Aufgabe:
+
+	The following is a first attempt at an elliptic curve signature scheme. We have a global elliptic curve, prime p, and generator G. Alice picks a private signing key XA and forms the public verifying key YA=XA⋅G. To sign a message M:
+
+    Alice picks a value k
+    Alice sends Bob M, k and the signature S=M−k⋅ XA⋅G.
+    Bob verifies that M=S+k⋅YA.
+
+
+	Show that this scheme works. That is, show that the verification process produces an equality if the signature is valid.
+	
+Lösung:
+
+	Ja, das Schema funktioniert im Sinne von: bei korrekter Signatur, gilt: M=S+k∗YA
+
+	Die Funktionsweise ist einfach nachzuvollziehen durch einfaches Einsetzen:
+
+	Alice überliefert an Bob: M, k und S.
+
+	Bob checkt, dass: M=S+k∗YA
+
+	Wenn man S und YA einsetzt, bekommt man:
+
+	M=M−(k∗XA∗G)+(k∗XA∗G)
+
+	Also:
+
+	M=M

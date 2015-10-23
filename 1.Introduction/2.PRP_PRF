@@ -1,0 +1,7 @@
+Aufgabe:
+
+	Why do we use (pseudo) random permutations and not (pseudo) random functions for en- an decryption?
+
+Lösung:
+
+	Damit die Rückwärtseindeutigkeit gegeben ist und verschlüsselte Wörter eindeutig entschlüsselt werden können.

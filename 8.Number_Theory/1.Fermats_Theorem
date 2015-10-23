@@ -1,0 +1,33 @@
+
+Aufgabe:
+
+	Use Fermat's theorem to find a number x between 0 and 30 with x^61 congruent to 7 modulo 31.
+	Note: Solution using brute-force searching are not accepted! Do the math!
+
+Lösung:
+
+	""
+	There are so many theorems due to Fermat that the term "Fermat's theorem" is best avoided 
+	unless augmented by a description of which theorem of Fermat is under discussion.
+	Fermat's little theorem is sometimes known as Fermat's theorem (Hardy and Wright 1979, p. 63).
+	""
+
+	p = 31
+	Gleichung dann:
+	x^p−1∗x^p=7(modp)
+
+	Fermats Little Theorem:
+	a^p=a(modp)
+	und da p kein Teiler von a (7):
+	a^p−1=1(modp)
+
+	Das heißt, wir haben:
+	x^p−1=1(modp)
+	-->
+	1∗x^p=a(modp)
+
+	Das entspricht dem theorem. Da 7 dem a entspricht, haben wir
+
+	xp=a(modp)
+	da a == 7 und x == a:
+	x == 7.

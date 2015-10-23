@@ -1,0 +1,49 @@
+Aufgabe:
+
+	Suppose the F function of a 16 round Feistel cipher mapped every 16-bit input R, regardless of the value of the subkey K[r], to the bitwise complement of R.
+
+	What is the result of running an encryption with this cipher?
+
+	Hint: Use the following properties of the XOR operation:
+
+	(A XOR B) XOR C = A XOR (B XOR C)
+	A XOR A = 0
+	A XOR 0 = A
+	A XOR 1 = A^{-1}
+	(A XOR B)^{-1} = A^{-1} XOR B
+	where
+	A,B,C are n-bit strings of bits
+	0 is an n-bit string of zeros
+	1 is an n-bit string of one
+	A^{-1} is the bit-wise complement of A
+
+Lösung:
+
+	Input sei geteilt in A | B.
+	Die erste Runde ergibt dann: B | A⊕B⊕1
+	Die zweite Runde ergibt (zusammengefasst): A⊕B⊕1 | A
+	Die dritte Runde ergibt (zusammengefasst): A | B
+	Die vierte Runde ergibt (zusammengefasst): B | A⊕B⊕1
+
+	Wie man sieht, entspricht die 1. Runde der 4. Runde.
+	Das bedeutet, dass das Ergebnis der 8. Runde der zweiten Runde entspricht.
+	Dementsprechend das der 16. Runde der 4(/2).
+
+	Das Ergebnis ist also: B | A⊕B⊕1.
+
+	(Belegt durch folgendes Python-Programm)
+	def f(r):
+		return ~r;
+
+	def feistel(a, b):
+		newA = ord(a)
+		newB = ord(b)
+		print str(newA) + ", " + str(newB)
+		for i in range(16):
+			tmpA = newA
+			newA = newB
+			newB = tmpA ^ f(newB)
+		print str(newA) + ", " + str(newB)
+		print "test: a xor b xor 1: " + str(ord(a)^~ord(b))
+
+	feistel('z', 'b')

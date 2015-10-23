@@ -1,0 +1,19 @@
+
+Aufgabe:
+
+	You have learned that a HMAC is calculated as h(K ⊕ a || h(K ⊕
+	b||M)). We also introduced h(K||l||M) with l the length of the message
+	as an alternative approach to counter the message extension attack.
+
+	Do you see an advantage of using h(K ⊕ a || h(K ⊕ b||M)) instead
+	of h(K||l||M)?
+
+Lösung:
+	
+	Nein, ich sehe keinen entscheidenden Vorteil von h(K ⊕ a || h(K ⊕ b||M))
+	gegenüber h(K||l||M).
+	
+	Eventuell kann man die Message-Extension-Attack anwenden, wenn man 
+	die Nachricht nicht verlängert, sondern verkürzt und eigene, gleich lange
+	Nachrichten anhängt. Dann wird auch ein valider Hash berechnet ?.
+	

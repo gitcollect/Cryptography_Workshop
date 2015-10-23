@@ -1,0 +1,28 @@
+
+Aufgabe:
+
+	In the programming assignment, you wrote a true random number generator. 
+	Explain your choice of a random source. What amount of post-processing was 
+	necessary in order to generate good random numbers?
+
+Lösung:
+	
+	Für meinen TRNG habe ich zwei verschiedene Entropiequellen miteinander kombiniert.
+
+	1. Netzwerkpakete/Traffic:
+		Der Inhalt von Netzwerkpaketen (über einen Raw-Socket).
+		Bei jedem Paket werden 16-Bit herausgeschnitten und als Daten verwendet.
+		Die Stelle an der die 16-Bit extrahiert werden, wird jedes Mal inkrementiert um zu vermeiden,
+		dass bei Paketen des gleichen Protokolls eventuell gleiche Teile des Headers extrahiert werden.
+		Weiterhin wird die Zeit zwischen jeweils zwei Paketen gemessen. Diese, kombiniert mit 
+		seiner Quersumme, wird mit einer sehr einfachen Hash-Funktion gehashed und mit seiner
+		Quersumme addiert.
+		Daraufhin wird das Ergebnis davon mit den jeweiligen 16-Bit-Traffic exorisiert
+		und an die bereits vorhandenen Random-Werte angehängt, bis 20000 Bit voll sind.
+		
+	2. Raw-Input des Mikrofons:
+		Hier wird solange der Raw-Input des Mikrofons genommen, bis 20000 Bit voll sind.
+
+	Am Schluss werden die Daten aus 1. und 2. miteinander exorisiert und die
+	die Datei gespeichert.
+	Sie erfüllen in 90% alle 4 implementierten Tests.

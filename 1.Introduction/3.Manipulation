@@ -1,0 +1,15 @@
+Aufgabe:
+
+	You intercepted the following message:
+	0E DF 79 E2 AE 92 62 5D 72 DC 17 3D 83 5D 45 88 69 D1 64 A2
+	You do not know the message content, but you do know that it is enciphered in ASCII, 
+	and you know that the third to sixth character encode the word "tree". 
+	Change the ciphertext such that the ciphertext message decodes to "foot". 
+
+Lösung:
+
+	0E DF 6B FF A4 83 62 5D 72 DC 17 3D 83 5D 45 88 69 D1 64 A2
+
+	3. - 6. Zahl in Binär übersetzen, dann gilt: Zahl xor N == Binäre Zahl von t,r oder e. N errechnen.
+
+	Dann den jeweiligen neuen Wert der Message bestimmen mit Zahl xor N == Binäre Zahl von f,o oder t.

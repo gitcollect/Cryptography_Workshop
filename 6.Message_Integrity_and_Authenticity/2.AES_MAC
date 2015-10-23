@@ -1,0 +1,23 @@
+
+Aufgabe:
+
+	A simple proposal for a MAC algorithm consists of letting the MAC of 
+	message M (which consists of message blocks M_1, M_2 ,... , M_n be 
+	the AES encryption with key K of the XOR of all the message blocks. 
+	In other words:
+
+	MAC_K(M) = E_K(M_1 ⊕ M_2 ⊕ ... ⊕  M_n)
+
+	Explain why this is a bad idea.
+
+
+	
+Lösung:
+	
+	Es ist eine schlechte Idee, weil es nun für Eve möglich ist, die 
+	Nachrichten zu manipulieren (z.B. 3x M_1), ohne, dass sich die
+	MAC verändert.
+	Oder man kann eine Nachricht mit allen Bits auf 0 setzen und bekommt,
+	gexored mit M_1 .. M_n trotzdem die gleiche Checksumme.
+	
+	

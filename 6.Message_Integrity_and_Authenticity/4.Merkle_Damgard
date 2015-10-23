@@ -1,0 +1,32 @@
+
+Aufgabe:
+
+	In this exercise, messages are sequences of natural numbers.
+
+	Let f(a,b) = a + b mod 256.
+
+	Construct a Merkle-Damgard hash function from f.
+
+	Calculate the hash of M=(108;68;64) with initialization vector IV=0.
+
+
+Lösung:
+	
+	Davon ausgehend, dass M die aufeinanderfolgenden Nachrichtenblöcke enthält, 
+	berechnet sich der Merkle-Damgard-Hash folgendermaßen:
+	
+		Block1	        Block2 ..
+		  |				  |
+		  v               v 
+	IV --> 	f(_)	-->	f(_)	--> ...	--> Hash
+	
+	Da keine Finalisierungsfunktion angegeben ist, kommt keine 
+	Finalisierung zur Anwendung (Optional).
+	
+			108        68	    64
+			|	   	   |	    |
+			v          v 	    v
+	  0 --> f(_) --> f(_) --> f(_) --> 240
+
+	Die Unterstriche in f(_) sind zu ignorieren. Bei einem Leerzeichen, damit es symmetrisch aussieht mit dem 
+	Pfeil von oben, entsteht leider folgendes: f() --> fegg

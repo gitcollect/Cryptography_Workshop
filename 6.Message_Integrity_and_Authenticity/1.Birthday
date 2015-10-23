@@ -1,0 +1,27 @@
+
+Aufgabe:
+
+	By considering the analogy of a birthday being a "hash" of a
+	person's identity, explain the following terms:
+
+    1. preimage resistance;
+    2. second preimage resistance;
+    3. collision resistance;
+    4. the birthday paradox.
+
+	
+Lösung:
+
+	1. 	h(M) == geb(ID)
+		Es ist unmöglich aus einem Geburtstag einer Person auf seine 
+		Identität zu schließen.
+	2. 	Bei einer gegebenen Personen-Identität ist es unmöglich eine 
+		andere Person zu finden, die den gleichen Geburtstag hat.
+	3.	Es gibt generell keine 2 beliebigen Personen, die den gleichen
+		Geburtstag haben. ( geb(ID) = geb(ID') )
+	4. 	Es gibt keine Gleichverteilung von Geburtstagen im Generellen, 
+		so dass schon bei (ich glaube) 23 Personen eine 50%ige Chance
+		besteht, dass zwei der 23 Personen am gleichen Tag Geburtstag
+		haben.
+		
+	--> Alles falsch, gab keine Punkte!!!!!!! Aber die Aufgabenstellung war scheiße und nicht eindeutig!

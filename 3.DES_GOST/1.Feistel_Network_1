@@ -1,0 +1,32 @@
+Aufgabe:
+
+	Suppose the F function of a 16 round Feistel cipher mapped every 16-bit input R, regardless of the value of the subkey K[r], to 0xFFFF.
+
+	What is the result of running an encryption with this cipher?
+
+	Hint: Use the following properties of the XOR operation:
+
+	(A XOR B) XOR C = A XOR (B XOR C)
+	A XOR A = 0
+	A XOR 0 = A
+	A XOR 1 = A^{-1}
+	(A XOR B)^{-1} = A^{-1} XOR B
+	where
+	A,B,C are n-bit strings of bits
+	0 is an n-bit string of zeros
+	1 is an n-bit string of one
+	A^{-1} is the bit-wise complement of A
+
+Lösung:
+
+	Seien die ersten 16 Bit Input (ich gehe von 32 Bit insgesamt aus, da R == 16 Bit in F geht) = A und die zweiten 16 Bit = B.
+
+	Input ist also: A | B
+
+	Nach einer Runde:  B | A^{-1}
+	Nach der 2. Runde: A^{-1} | B^{-1}
+	Nach der 3. Runde: B^{-1} | A
+	Dementsprechend nach der 4. Runde: A | B
+
+	Da alle 4 Runden die Eingabe der initialen Eingabe entspricht und wir 16 Runden haben, 
+	entspricht die endgültige Ausgabe: A | B
